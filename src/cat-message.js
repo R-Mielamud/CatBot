@@ -29,5 +29,12 @@ exports.sendCat = async (bot, channelId, type) => {
         return;
     }
 
-    await bot.client.files.upload(message);
+    const result = await bot.client.files.upload(message);
+
+    if (!result.ok) {
+        await bot.client.chat.postMessage({
+            channel: channelId,
+            text: "Oops! Something went wrong... :crying_cat_face:",
+        });
+    }
 };
