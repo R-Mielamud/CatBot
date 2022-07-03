@@ -1,9 +1,9 @@
 const Joi = require("joi");
-const knex = require("knex");
+const { connection } = require("../connection");
 
 class Model {
     constructor(data) {
-        const { error, value } = Joi.object({})
+        const { error, value } = this.constructor.getValidationSchema()
             .validate(data, { convert: false, allowUnknown: false, stripUnknown: true });
 
         this.data = value;
@@ -19,7 +19,7 @@ class Model {
     }
 
     static all() {
-        return knex(this.getTableName());
+        return connection(this.getTableName());
     }
 
     static async create(data) {

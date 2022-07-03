@@ -4,10 +4,15 @@ const { sendCat } = require("../slack/chat");
 
 const cronMap = new Map();
 
-exports.startOrReplaceJob = (periodicCat) => {
-    if (cronMap.has(periodicCat.id)) {
-        cronMap.get(periodicCat.id).stop();
+exports.removeJobIfExists = (channel) => {
+    if (cronMap.has(channel)) {
+        cronMap.get(channel).stop();
+        cronMap.delete(channel);
     }
+};
+
+exports.startOrReplaceJob = (periodicCat) => {
+    exports.removeJobIfExists(periodicCat.channel);
 
     const job = new CronJob(
         periodicCat.cronTime,
@@ -18,5 +23,5 @@ exports.startOrReplaceJob = (periodicCat) => {
     );
 
     job.start();
-    cronMap.set(periodicCat.id, job);
+    cronMap.set(periodicCat.channel, job);
 };

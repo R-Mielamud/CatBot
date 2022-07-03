@@ -1,4 +1,5 @@
 const { App } = require("@slack/bolt");
+const ENV = require("../constants/env");
 
 const bot = new App({
     token: ENV.BOT.TOKEN,

@@ -6,7 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node ./src/index.js",
-        "migrate:start": "knex migrate:up && npm start"
+        "start:production": "knex migrate:up --env=production --knexfile=./knexfile.js && npm start"
     },
     "repository": {
         "type": "git",

@@ -1,9 +1,7 @@
 const knex = require("knex");
 const ENV = require("../constants/env");
+const config = require("../../knexfile");
 
-const connection = knex({
-    client: "pg",
-    connection: ENV.DB.CONNECTION_STRING,
-});
+const connection = knex(config[ENV.ENV_NAME]);
 
 module.exports = { connection };

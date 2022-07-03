@@ -12,7 +12,7 @@ class PeriodicCat extends Model {
         return Joi.object({
             channel: Joi
                 .string()
-                .regex(/^C\d+$/)
+                .regex(/^C[A-Z0-9]+$/)
                 .required()
                 .messages({
                     "string.base": "Channel id must be a string",
@@ -22,14 +22,16 @@ class PeriodicCat extends Model {
                 }),
             cronTime: Joi.string()
                 .custom((value, builder) => {
-                    if (isValidCron(value)) {
-                        builder.error("Cron time must be valid");
+                    if (!isValidCron(value, { seconds: true })) {
+                        return builder.message("Cron time must be valid");
                     }
+
+                    return value;
                 })
                 .required()
                 .messages({
-                    "string.empty": "Channel id is required",
-                    "any.required": "Channel id is required",
+                    "string.empty": "Cron time is required",
+                    "any.required": "Cron time is required",
                 }),
         });
     }

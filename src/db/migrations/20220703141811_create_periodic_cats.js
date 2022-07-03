@@ -8,7 +8,7 @@ exports.up = (knex) => {
     return knex.schema
         .createTableIfNotExists(DB_TABLES.PERIODIC_CATS, (table) => {
             table.string("channel", 32).primary();
-            table.string("cronTime", 255);
+            table.string("cronTime", 255).notNullable();
         });
 };
 
