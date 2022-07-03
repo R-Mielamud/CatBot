@@ -5,7 +5,8 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node ./src/index.js"
+        "start": "node ./src/index.js",
+        "migrate:start": "knex migrate:up && npm start"
     },
     "repository": {
         "type": "git",
@@ -21,6 +22,10 @@
         "@slack/bolt": "^3.11.3",
         "axios": "^0.27.2",
         "cron": "^2.0.0",
-        "dotenv": "^16.0.1"
+        "cron-validator": "^1.3.1",
+        "dotenv": "^16.0.1",
+        "joi": "^17.6.0",
+        "knex": "^2.1.0",
+        "pg": "^8.7.3"
     }
 }

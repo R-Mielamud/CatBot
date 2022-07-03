@@ -1,5 +1,5 @@
 const axios = require("axios");
-const ENV = require("./env");
+const ENV = require("../constants/env");
 
 exports.getCatUrl = async () => {
     const { data: catArray } = await axios.get(`https://api.thecatapi.com/v1/images/search?mime_types=${ENV.CATS.IMAGE_TYPES}`);

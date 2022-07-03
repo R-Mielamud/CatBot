@@ -3,3 +3,4 @@
 cp ./nginx.conf /home/ubuntu/nginx_config/catbot.conf
 cp /home/ubuntu/.env ../.env
 cp /home/ubuntu/.nginx.env ../.nginx.env
+cp /home/ubuntu/.postgres.env ../.postgres.env

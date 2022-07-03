@@ -11,5 +11,5 @@ RUN ["npm", "install"]
 
 COPY ./src ./src
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "migrate:start"]
 EXPOSE $PORT

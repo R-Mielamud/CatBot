@@ -1,5 +1,15 @@
 version: "3.9"
 services:
+  db:
+    container_name: "db"
+    restart: "always"
+    image: "postgres:latest"
+    env_file:
+      - "../.postgres.env"
+    volumes:
+      - "/home/ubuntu/db_data:/var/lib/postgresql/data"
+    ports:
+      - "5432:5432"
   bot:
     container_name: "bot"
     restart: "always"
@@ -8,6 +18,8 @@ services:
       dockerfile: "./deployment/bot.dockerfile"
       args:
         - "PORT=3000"
+    depends_on:
+      - "db"
     env_file:
       - "../.env"
     ports:
@@ -18,6 +30,8 @@ services:
     build:
       context: "../"
       dockerfile: "./deployment/nginx.dockerfile"
+    depends_on:
+      - "bot"
     env_file:
       - "../.nginx.env"
     ports:

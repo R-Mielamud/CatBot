@@ -1,3 +1,5 @@
 .env
 .nginx.env
+.postgres.env
 node_modules
+db_data
