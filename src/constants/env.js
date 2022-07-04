@@ -32,8 +32,7 @@ module.exports = {
         SOMETHING_WRONG: "Oops! Something went wrong... :crying_cat_face:",
         SENDACAT_HELP: "Sends a funny cat image :smile_cat:",
         DIDNT_UNDERSTAND: "Sorry, didn't understand. Try without any text :smile_cat:",
-        SEND_PERIODIC_CATS_HELP: `1. Pass a cron time (seconds minutes hours DaysOfMonth Months Years) to send cats to this channel periodically or change the cat time
-2. Pass 'cancel' (without quotes) to remove periodic cats from this channel.`,
+        SEND_PERIODIC_CATS_HELP: "Pass a cron time in UTC (seconds minutes hours DaysOfMonth Months Years) to send cats to this channel periodically or change the cat time\nPass 'cancel' (without quotes) to remove periodic cats from this channel.",
         NOT_IN_CHANNEL: "I'm not in this channel... :crying_cat_face: Add me, please",
         CAT_TIME_SET: "Periodic cats are now in this channel!",
         CAT_TIME_REMOVED: "Periodic cats are now outta this channel",

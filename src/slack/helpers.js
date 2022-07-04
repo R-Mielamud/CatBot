@@ -10,3 +10,12 @@ exports.respondNotInChannelIfNot = async (channelId, say) => {
 
     return isMember;
 };
+
+exports.handleCommandErrors = (handler) => async (options) => {
+    try {
+        const result = await handler(options);
+        return result;
+    } catch (err) {
+        await options.say(err.message);
+    }
+};
