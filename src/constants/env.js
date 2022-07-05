@@ -13,7 +13,7 @@ module.exports = {
         SOCKET_MODE: true,
     },
     CATS: {
-        IMAGE_TYPES: "gif",
+        IMAGE_TYPES: "png,jpg,gif",
     },
     DB: {
         HOST: process.env.DB_HOST,
